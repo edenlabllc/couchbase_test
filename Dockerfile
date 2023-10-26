@@ -11,7 +11,7 @@ RUN cd / \
 
 # Package stage
 FROM rust:1.73-alpine3.18 as rust
-COPY --from=alpine-builder /mimalloc/build/*.so.* /lib
+COPY --from=alpine-builder /mimalloc/build/*.so.* /lib/
 ARG MIMALLOC_VERSION=2.1
 ARG S5CMD_VERSION=2.1.0
 RUN ln -s /lib/libmimalloc.so.${MIMALLOC_VERSION} /lib/libmimalloc.so
